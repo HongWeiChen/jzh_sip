@@ -23,9 +23,9 @@ Pod::Spec.new do |s|
                       LICENSE
                     }
 
-  s.ios.deployment_target   = '9.0'
-  s.ios.source_files        =
-  s.ios.public_header_files = [
+  s.platform = :ios, '10.0'
+  s.source_files        =
+  s.public_header_files = [
                                 'build/pjproject/src/pjlib/include/**/*.h',
                                 'build/pjproject/src/pjlib-util/include/**/*.h',
                                 'build/pjproject/src/pjmedia/include/**/*.h',
@@ -40,55 +40,53 @@ Pod::Spec.new do |s|
                                 'build/pjproject/src/pjnath/include/**/*',
                                 'build/pjproject/src/pjsip/include/**/*'
                               ]
-  s.ios.vendored_libraries  = [
+  # s.vendored_libraries  = [
                                 # 'build/openh264/lib/*.a',
                                 # 'build/openssl/lib/ios/*.a',
-                                'build/opus/dependencies/lib/*.a',
-                                'build/pjproject/src/pjlib/lib/*ios.a',
-                                'build/pjproject/src/pjlib-util/lib/*ios.a',
-                                'build/pjproject/src/pjmedia/lib/*ios.a',
-                                'build/pjproject/src/pjnath/lib/*ios.a',
-                                'build/pjproject/src/pjsip/lib/*ios.a',
-                                'build/pjproject/src/third_party/lib/*ios.a'
-                              ]
-  s.ios.frameworks          = 'UIKit', 'VideoToolbox', 'AudioToolbox', 'AVFoundation', 'OpenGLES', 'QuartzCore', 'CoreMedia', 'CoreVideo'
+                                # 'build/opus/dependencies/lib/*.a',
+                                # 'build/pjproject/src/pjlib/lib/*ios.a',
+                                # 'build/pjproject/src/pjlib-util/lib/*ios.a',
+                                # 'build/pjproject/src/pjmedia/lib/*ios.a',
+                                # 'build/pjproject/src/pjnath/lib/*ios.a',
+                                # 'build/pjproject/src/pjsip/lib/*ios.a',
+                                # 'build/pjproject/src/third_party/lib/*ios.a'
+                              # ]
+  s.frameworks          = 'UIKit', 'VideoToolbox', 'AudioToolbox', 'AVFoundation', 'OpenGLES', 'QuartzCore', 'CoreMedia', 'CoreVideo'
 
-  s.osx.deployment_target = '10.12'
-  s.osx.source_files        =
-  s.osx.public_header_files = [
-                                'build/pjproject/src/pjlib/include/**/*.h',
-                                'build/pjproject/src/pjlib-util/include/**/*.h',
-                                'build/pjproject/src/pjmedia/include/**/*.h',
-                                'build/pjproject/src/pjnath/include/**/*.h',
-                                'build/pjproject/src/pjsip/include/**/*.h',
-                                'build/pjproject/src/pjsip/include/**/*.hpp'
-                              ]
-  s.osx.preserve_paths      = [
-                                'build/pjproject/src/pjlib/include/**/*',
-                                'build/pjproject/src/pjlib-util/include/**/*',
-                                'build/pjproject/src/pjmedia/include/**/*',
-                                'build/pjproject/src/pjnath/include/**/*',
-                                'build/pjproject/src/pjsip/include/**/*'
-                              ]
-  s.osx.vendored_libraries  = [
-                                # 'build/openh264/lib/*.a',
-                                # 'build/openssl/lib/macos/*.a',
-                                'build/opus/dependencies/lib/*.a',
-                                'build/pjproject/src/pjlib/lib/*darwin18.6.0.a',
-                                'build/pjproject/src/pjlib-util/lib/*darwin18.6.0.a',
-                                'build/pjproject/src/pjmedia/lib/*darwin18.6.0.a',
-                                'build/pjproject/src/pjnath/lib/*darwin18.6.0.a',
-                                'build/pjproject/src/pjsip/lib/*darwin18.6.0.a',
-                                'build/pjproject/src/third_party/lib/*darwin18.6.0.a'
-                              ]
-  s.osx.frameworks          = 'AppKit', 'VideoToolbox', 'AudioToolbox', 'AVFoundation', 'CoreMedia', 'CoreVideo'
+  # s.osx.public_header_files = [
+  #                               'build/pjproject/src/pjlib/include/**/*.h',
+  #                               'build/pjproject/src/pjlib-util/include/**/*.h',
+  #                               'build/pjproject/src/pjmedia/include/**/*.h',
+  #                               'build/pjproject/src/pjnath/include/**/*.h',
+  #                               'build/pjproject/src/pjsip/include/**/*.h',
+  #                               'build/pjproject/src/pjsip/include/**/*.hpp'
+  #                             ]
+  # s.osx.preserve_paths      = [
+  #                               'build/pjproject/src/pjlib/include/**/*',
+  #                               'build/pjproject/src/pjlib-util/include/**/*',
+  #                               'build/pjproject/src/pjmedia/include/**/*',
+  #                               'build/pjproject/src/pjnath/include/**/*',
+  #                               'build/pjproject/src/pjsip/include/**/*'
+  #                             ]
+  # s.osx.vendored_libraries  = [
+  #                               # 'build/openh264/lib/*.a',
+  #                               # 'build/openssl/lib/macos/*.a',
+  #                               'build/opus/dependencies/lib/*.a',
+  #                               'build/pjproject/src/pjlib/lib/*darwin18.6.0.a',
+  #                               'build/pjproject/src/pjlib-util/lib/*darwin18.6.0.a',
+  #                               'build/pjproject/src/pjmedia/lib/*darwin18.6.0.a',
+  #                               'build/pjproject/src/pjnath/lib/*darwin18.6.0.a',
+  #                               'build/pjproject/src/pjsip/lib/*darwin18.6.0.a',
+  #                               'build/pjproject/src/third_party/lib/*darwin18.6.0.a'
+                              # ]
+  # s.osx.frameworks          = 'AppKit', 'VideoToolbox', 'AudioToolbox', 'AVFoundation', 'CoreMedia', 'CoreVideo'
 
   header_search_paths     = [
-                                '"$(PODS_ROOT)/Headers/Public/pjsip/pjlib/include"',
-                                '"$(PODS_ROOT)/Headers/Public/pjsip/pjlib-util/include"',
-                                '"$(PODS_ROOT)/Headers/Public/pjsip/pjmedia/include"',
-                                '"$(PODS_ROOT)/Headers/Public/pjsip/pjnath/include"',
-                                '"$(PODS_ROOT)/Headers/Public/pjsip/pjsip/include"'
+                                '"$(PODS_ROOT)/Headers/Public/jzh_sip/pjlib/include"',
+                                '"$(PODS_ROOT)/Headers/Public/jzh_sip/pjlib-util/include"',
+                                '"$(PODS_ROOT)/Headers/Public/jzh_sip/pjmedia/include"',
+                                '"$(PODS_ROOT)/Headers/Public/jzh_sip/pjnath/include"',
+                                '"$(PODS_ROOT)/Headers/Public/jzh_sip/pjsip/include"'
                               ]
 
   s.xcconfig                = {
